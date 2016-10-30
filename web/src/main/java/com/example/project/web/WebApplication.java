@@ -1,5 +1,10 @@
 package com.example.project.web;
 
+import com.example.project.common.data.model.User;
+import com.example.project.common.data.model.enumeration.UserStatus;
+import com.example.project.common.data.model.enumeration.UserType;
+import com.example.project.common.exception.DatabaseException;
+import com.example.project.data.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,9 +26,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class WebApplication extends SpringBootServletInitializer implements CommandLineRunner {
 
-    /**
-     * in case of application is deployed under traditional server
-     */
+    private UserService userService;
+
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(WebApplication.class);
@@ -35,5 +39,21 @@ public class WebApplication extends SpringBootServletInitializer implements Comm
 
     @Override
     public void run(String... strings) throws Exception {
+        final boolean emailExist = userService.isEmailExist("admin@mail.com");
+        if (!emailExist){
+            User user = new User();
+            user.setName("admin");
+            user.setSurname("admin");
+            user.setEmail("admin@mail.com");
+            user.setPassword("123456");
+            user.setUserStatus(UserStatus.ACTIVE);
+            user.setUserType(UserType.ADMINISTRATOR);
+
+            try {
+                userService.add(user);
+            }catch (Exception e){
+                throw new DatabaseException(e);
+            }
+        }
     }
 }
