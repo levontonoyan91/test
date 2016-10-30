@@ -20,9 +20,6 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 @ComponentScan
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
-    /**
-     * Provides own message source
-     */
     @Bean
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource =
@@ -32,9 +29,6 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         return messageSource;
     }
 
-    /**
-     * Passing out message source to validators
-     */
     @Override
     public Validator getValidator() {
         LocalValidatorFactoryBean factory = new LocalValidatorFactoryBean();
@@ -42,17 +36,11 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         return factory;
     }
 
-    /**
-     * Sets cookie as a locale resolver
-     */
     @Bean
     public LocaleResolver localeResolver() {
         return new CookieLocaleResolver();
     }
 
-    /**
-     * Adding resource paths
-     */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/**")
@@ -64,31 +52,18 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
                 );
     }
 
-    /**
-     * Adding static view/controller
-     */
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
     }
 
-    /**
-     * Adding custom interceptors
-     */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        // adds the interceptor which manages switching locale
         LocaleChangeInterceptor localeInterceptor = new LocaleChangeInterceptor();
         localeInterceptor.setParamName("lang");
         registry.addInterceptor(localeInterceptor);
-
-//        registry.addInterceptor(new LoggingInterceptor()).addPathPatterns("/404");
-//        registry.addInterceptor(new AdminRequiredInterceptor());
     }
 
-    /**
-     * Forwards the request to appropriate controller in case of errors
-     */
     @Bean
     public EmbeddedServletContainerCustomizer containerCustomizer() {
         return container -> {

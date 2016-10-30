@@ -1,4 +1,4 @@
-package com.example.project.common.data.model.enumeration;
+package com.example.project.common.data.model.lcp;
 
 public enum TaskStatus {
 

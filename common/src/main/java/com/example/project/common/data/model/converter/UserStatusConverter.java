@@ -1,6 +1,6 @@
 package com.example.project.common.data.model.converter;
 
-import com.example.project.common.data.model.enumeration.UserStatus;
+import com.example.project.common.data.model.lcp.UserStatus;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;

@@ -12,5 +12,4 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories("com.example.project.data")
 @EnableTransactionManagement
 public class DataConfig {
-
 }

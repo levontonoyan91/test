@@ -10,12 +10,12 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <th:block sec:authorize="isAuthenticated()">
-                        <li sec:authorize="hasRole('ROLE_ADMIN')">
+                        <!--<li sec:authorize="hasRole('ROLE_ADMIN')">-->
                             <a th:href="@{/admin/users}">Users</a>
-                        </li>
-                        <li sec:authorize="hasRole('ROLE_USER')">
+                        <!--</li>-->
+                        <!--<li sec:authorize="hasRole('ROLE_USER')">-->
                             <a th:href="@{/user/personal}">View Personal Data</a>
-                        </li>
+                        <!--</li>-->
                     </th:block>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

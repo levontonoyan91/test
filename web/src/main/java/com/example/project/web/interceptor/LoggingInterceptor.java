@@ -21,7 +21,7 @@ public class LoggingInterceptor implements HandlerInterceptor {
                            HttpServletResponse response,
                            Object handler,
                            ModelAndView modelAndView) throws Exception {
-        System.out.println("---method executed---");
+        System.out.println("---Method executed---");
     }
 
     @Override

@@ -1,6 +1,6 @@
 package com.example.project.common.data.model;
 
-import com.example.project.common.data.model.enumeration.TaskStatus;
+import com.example.project.common.data.model.lcp.TaskStatus;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;

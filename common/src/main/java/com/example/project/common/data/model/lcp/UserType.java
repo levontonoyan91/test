@@ -1,10 +1,11 @@
-package com.example.project.common.data.model.enumeration;
+package com.example.project.common.data.model.lcp;
 
 public enum UserType {
 
-    ADMINISTRATOR   (1, "administrator"),
-    MANAGER         (2, "manager"),
-    USER            (3, "user");
+    ADMIN           (1, "admin"),
+    USER            (2, "user"),
+    MANAGER         (3, "manager");
+
 
     private int key;
     private String value;

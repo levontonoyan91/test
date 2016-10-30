@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-public interface TaskRepository extends JpaRepository<Task, Integer>{
+public interface TaskRepository extends JpaRepository<Task, Long>{
 
+//    @Query(value = "", nativeQuery = true)
+//    void editTask(@Param("task") Task task);
 }

@@ -13,7 +13,7 @@ public interface TaskService {
 
     List<Task> getAll() throws InternalServerException;
 
-    void edit(Task task) throws InternalServerException;
+//    void edit(Task task) throws InternalServerException;
 
     void removeByID(long id) throws InternalServerException;
 }

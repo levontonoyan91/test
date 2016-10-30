@@ -1,10 +1,11 @@
 package com.example.project.web;
 
 import com.example.project.common.data.model.User;
-import com.example.project.common.data.model.enumeration.UserStatus;
-import com.example.project.common.data.model.enumeration.UserType;
+import com.example.project.common.data.model.lcp.UserStatus;
+import com.example.project.common.data.model.lcp.UserType;
 import com.example.project.common.exception.DatabaseException;
 import com.example.project.data.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,6 +27,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class WebApplication extends SpringBootServletInitializer implements CommandLineRunner {
 
+    @Autowired
     private UserService userService;
 
     @Override
@@ -47,7 +49,7 @@ public class WebApplication extends SpringBootServletInitializer implements Comm
             user.setEmail("admin@mail.com");
             user.setPassword("123456");
             user.setUserStatus(UserStatus.ACTIVE);
-            user.setUserType(UserType.ADMINISTRATOR);
+            user.setUserType(UserType.ADMIN);
 
             try {
                 userService.add(user);

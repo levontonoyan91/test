@@ -2,8 +2,8 @@ package com.example.project.common.data.model;
 
 import com.example.project.common.data.model.converter.UserStatusConverter;
 import com.example.project.common.data.model.converter.UserTypeConverter;
-import com.example.project.common.data.model.enumeration.UserStatus;
-import com.example.project.common.data.model.enumeration.UserType;
+import com.example.project.common.data.model.lcp.UserStatus;
+import com.example.project.common.data.model.lcp.UserType;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 

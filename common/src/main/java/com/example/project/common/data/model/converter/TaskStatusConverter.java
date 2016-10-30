@@ -1,6 +1,6 @@
 package com.example.project.common.data.model.converter;
 
-import com.example.project.common.data.model.enumeration.TaskStatus;
+import com.example.project.common.data.model.lcp.TaskStatus;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;

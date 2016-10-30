@@ -1,6 +1,6 @@
 package com.example.project.common.data.model.converter;
 
-import com.example.project.common.data.model.enumeration.UserType;
+import com.example.project.common.data.model.lcp.UserType;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;

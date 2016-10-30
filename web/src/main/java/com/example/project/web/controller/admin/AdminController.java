@@ -22,7 +22,10 @@ import java.util.List;
 import java.util.Locale;
 
 @Controller
+//@PreAuthorize("hasRole('ROLE_ADMIN')")
+@RequestMapping("/admin")
 public class AdminController {
+
     private UserService userService;
 
     private MessageSource messageSource;
